@@ -8,3 +8,5 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 CookingTutorial.new(title:"Mutton Stew", description: "Potoatoes, Tomatoes, Carrots, Onions, Mutton Chops, Herbs and Spices", location: "Durban", date: "2 June 2025")
+CookingTutorial.new(title:"Rainbow Sushi", description: "Salmon, Rice, Avocados, Seaweed Wrap", location: "Japan", date: "19 July 2025")
+CookingTutorial.new(title:"Chicken and Chips", description: "Chicken Pieces, Frozen Chips, Spices and Jimmy Sauce", location: "Kensington", date: "21 July 2025")
