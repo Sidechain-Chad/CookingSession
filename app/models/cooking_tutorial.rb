@@ -1,0 +1,2 @@
+class CookingTutorial < ApplicationRecord
+end
