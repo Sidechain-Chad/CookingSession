@@ -1,2 +1,34 @@
-<h1>Bookings#index</h1>
+<!--<h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
+-->
+<h1>My Bookings</h1>
+<% if @my_bookings.any? %>
+  <ul>
+    <% @my_bookings.each do |booking| %>
+      <li>
+        <strong><%= booking.cooking_tutorial.title %></strong>
+        on <%= booking.cooking_tutorial.date.strftime("%b %d, %Y") %>
+        - Confirmed: <%= booking.confirmed ? "Yes" : "No" %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You haven’t booked any classes yet.</p>
+<% end %>
+
+<hr>
+
+<h1>Bookings for My Tutorials</h1>
+<% if @hosted_bookings.any? %>
+  <ul>
+    <% @hosted_bookings.each do |booking| %>
+      <li>
+        <%= booking.user.email %> booked <strong><%= booking.cooking_tutorial.title %></strong>
+        - Confirmed: <%= booking.confirmed ? "Yes" : "No" %>
+        - <%= link_to "Edit", edit_booking_path(booking) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No one has booked your tutorials yet.</p>
+<% end %>
