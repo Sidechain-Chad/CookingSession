@@ -9,11 +9,54 @@
 #   end
 require "open-uri"
 require "json"
+require "faker"
 
-puts "Cleaning up database..."
+# Clear existing data
+Booking.destroy_all
 CookingTutorial.destroy_all
-puts "Database cleaned"
-CookingTutorial.create(title:"Mutton Stew", description: "Potoatoes, Tomatoes, Carrots, Onions, Mutton Chops, Herbs and Spices", location: "Durban", date: "2 June 2025")
-CookingTutorial.create(title:"Rainbow Sushi", description: "Salmon, Rice, Avocados, Seaweed Wrap", location: "Japan", date: "19 July 2025")
-CookingTutorial.create(title:"Chicken and Chips", description: "Chicken Pieces, Frozen Chips, Spices and Jimmy Sauce", location: "Kensington", date: "21 July 2025")
-puts "Seed file complete, #{CookingTutorial.count} tuts created."
+User.destroy_all
+
+# Create Users
+users = User.create!([
+  { email: 'alice@example.com', password: 'password' },
+  { email: 'bob@example.com', password: 'password' },
+  { email: 'carol@example.com', password: 'password' }
+])
+
+puts "Created #{User.count} users"
+
+# Create Cooking Tutorials
+tutorials = CookingTutorial.create!([
+  {
+    title: 'Italian Pasta Making',
+    description: 'Learn how to make authentic Italian pasta from scratch.',
+    location: 'Cape Town',
+    date: DateTime.now + 3.days,
+    user: users[0]
+  },
+  {
+    title: 'Sushi Rolling Basics',
+    description: 'Master the basics of sushi rolling with our expert chefs.',
+    location: 'Johannesburg',
+    date: DateTime.now + 5.days,
+    user: users[1]
+  },
+  {
+    title: 'Bread Baking 101',
+    description: 'A beginner-friendly guide to baking delicious bread at home.',
+    location: 'Durban',
+    date: DateTime.now + 7.days,
+    user: users[2]
+  }
+])
+
+puts "Created #{CookingTutorial.count} cooking tutorials"
+
+# Create Bookings
+Booking.create!([
+  { user: users[1], confirmed: true },  # Bob books Alice's tutorial
+  { user: users[2], confirmed: false }, # Carol books Bob's tutorial
+  { user: users[0], confirmed: true }   # Alice books Carol's tutorial
+])
+
+puts "Created #{Booking.count} bookings"
