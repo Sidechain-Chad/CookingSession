@@ -1,25 +1,66 @@
 class BookingsController < ApplicationController
-  # Bookings I'm attending and bookings for my tutorials
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
+  # GET /bookings
   def index
+    @bookings = current_user.bookings.order(created_at: :desc)
   end
 
-  # See details of one booking (e.g. dietary requirements)
+  # GET /bookings/:id
   def show
+    authorize_booking!
   end
 
-  # Booking form for a tutorial
+  # GET /bookings/new
   def new
+    @cooking_class = CookingClass.find(params[:cooking_class_id])
+    @booking = Booking.new(cooking_class: @cooking_class)
   end
 
-  # Submit a new booking
+  # POST /bookings
   def create
+    @booking = current_user.bookings.build(booking_params)
+    if @booking.save
+      redirect_to @booking, notice: 'Booking was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
-  # Edit a booking (e.g. confirm or update dietary info)
+  # GET /bookings/:id/edit
   def edit
+    authorize_booking!
   end
 
-  # Update a booking
+  # PATCH/PUT /bookings/:id
   def update
+    authorize_booking!
+    if @booking.update(booking_params)
+      redirect_to @booking, notice: 'Booking was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /bookings/:id
+  def destroy
+    authorize_booking!
+    @booking.destroy
+    redirect_to bookings_path, notice: 'Booking was successfully cancelled.'
+  end
+
+  private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def authorize_booking!
+    redirect_to bookings_path, alert: 'Access denied.' unless @booking.user == current_user
+  end
+
+  def booking_params
+    params.require(:booking).permit(:cooking_class_id, :scheduled_at, :dietary_restrictions, :status)
   end
 end
