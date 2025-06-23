@@ -5,7 +5,7 @@ class CreateCookingTutorials < ActiveRecord::Migration[7.1]
       t.text :description
       t.string :location
       t.datetime :date
-
+      
       t.timestamps
     end
   end

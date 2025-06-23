@@ -9,7 +9,6 @@
 #   end
 require "open-uri"
 require "json"
-require "faker"
 
 # Clear existing data
 Booking.destroy_all

@@ -1,3 +1,5 @@
 <h1>Tutorials</h1>
-<%= CookingTutorials.each do |t|
-p t.title %>
+
+<% CookingTutorial.all.each do |t| %>
+  <p><%= t.title %></p>
+<% end %>
