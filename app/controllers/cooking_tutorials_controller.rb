@@ -6,6 +6,12 @@ class CookingTutorialsController < ApplicationController
   end
 
   def show
-    
+
   end
+end
+
+private
+
+def name
+  @cooking_tutorial = CookingTutorial.all
 end
