@@ -1,6 +1,6 @@
 <h1>Tutorials</h1>
 
-<% @cookingtutorials.each do |t| %>
+<% @cooking_tutorials.each do |t| %>
   <p> <strong><%= t.title %></strong>  </p>
   <p><%= link_to "Find out more", cooking_tutorial_path(t.id) %>
  </p>
