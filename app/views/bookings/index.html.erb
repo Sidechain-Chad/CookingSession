@@ -9,7 +9,7 @@
       <div class="booking-card">
         <h2><%= booking.cooking_tutorial.title %></h2>
 
-        <p><strong>Date:</strong><%#= booking.scheduled_at.strftime("%A, %d %B %Y at %I:%M %p") %></p>
+        <p><strong>Date:</strong><%= booking.scheduled_at.strftime("%A, %d %B %Y at %I:%M %p") %></p>
 
         <%# if booking.dietary_restrictions.present? %>
 <!--          <p><strong>Dietary Restrictions:</strong> <%##= booking.dietary_restrictions %></p>-->
@@ -19,7 +19,7 @@
           <span class="status <%#= booking.status.downcase %>">
             <%#= booking.status.capitalize %>-->
 <!--          </span>
-        </p>-->
+        </p>--> 
 
         <%= link_to 'View', booking_path(booking), class: 'btn btn-secondary' %>
         <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>

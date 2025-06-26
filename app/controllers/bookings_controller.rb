@@ -29,6 +29,7 @@ class BookingsController < ApplicationController
 
   def edit
     authorize_booking!
+    @cooking_tutorials = CookingTutorial.all
   end
 
   def update
@@ -57,6 +58,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:confirmed)
+    params.require(:booking).permit(:confirmed, :scheduled_at, :cooking_tutorial_id)
   end
 end
