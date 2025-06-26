@@ -53,9 +53,8 @@ puts "Created #{CookingTutorial.count} cooking tutorials"
 
 # Create Bookings
 Booking.create!([
-  { user: users[1], confirmed: true },  # Bob books Alice's tutorial
-  { user: users[2], confirmed: false }, # Carol books Bob's tutorial
-  { user: users[0], confirmed: true }   # Alice books Carol's tutorial
+  { user: users[1], cooking_tutorial: tutorials[0], confirmed: true },
+  { user: users[2], cooking_tutorial: tutorials[1], confirmed: false },
+  { user: users[0], cooking_tutorial: tutorials[2], confirmed: true }
 ])
-
 puts "Created #{Booking.count} bookings"

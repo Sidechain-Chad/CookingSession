@@ -1,17 +1,22 @@
 class CookingTutorialsController < ApplicationController
-  def cooking_tutorials
-  end
 
   def index
+    @cookingtutorials = CookingTutorial.all
+    # @cooking_tutorial = CookingTutorial.find(params[:id])
   end
 
   def show
-
+    @cooking_tutorial = CookingTutorial.find(params[:id])
   end
+
+  def new
+    @cookingtutorial = CookingTutorial.new
+  end
+
 end
 
 private
 
 def name
-  @cooking_tutorial = CookingTutorial.all
+  @cookingtutorials = CookingTutorial.all
 end
