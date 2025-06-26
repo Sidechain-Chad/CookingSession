@@ -1,2 +1,17 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<!--<h1>Bookings#edit</h1>
+<p>Find me in app/views/bookings/edit.html.erb</p>-->
+<div class="container mt-5" style="max-width: 500px;">
+  <h2 class="mb-4">Edit Booking</h2>
+
+  <%= form_with model: @booking, local: true do |form| %>
+    <div class="mb-3">
+      <%= form.label :confirmed, "Booking Confirmed?", class: "form-label" %>
+      <div class="form-check">
+        <%= form.check_box :confirmed, class: "form-check-input" %>
+        <%= form.label :confirmed, class: "form-check-label" %>
+      </div>
+    </div>
+
+    <%= form.submit "Update Booking", class: "btn btn-success" %>
+  <% end %>
+</div>
