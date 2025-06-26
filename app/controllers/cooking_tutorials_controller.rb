@@ -13,6 +13,10 @@ class CookingTutorialsController < ApplicationController
     @cookingtutorial = CookingTutorial.new
   end
 
+  def create
+
+  end
+
 end
 
 private
