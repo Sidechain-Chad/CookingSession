@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_19_162302) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_24_182418) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_19_162302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.bigint "cooking_tutorial_id", null: false
+    t.datetime "scheduled_at"
+    t.index ["cooking_tutorial_id"], name: "index_bookings_on_cooking_tutorial_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -45,6 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_19_162302) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "cooking_tutorials"
   add_foreign_key "bookings", "users"
   add_foreign_key "cooking_tutorials", "users"
 end

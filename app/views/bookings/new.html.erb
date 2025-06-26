@@ -1,0 +1,18 @@
+<!--<h1>Bookings#new</h1>
+<p>Find me in app/views/bookings/new.html.erb</p>
+-->
+<div class="container mt-5" style="max-width: 500px;">
+  <h2 class="mb-4">Book: <%= @cooking_tutorial.title %></h2>
+
+  <%= form_with model: [@cooking_tutorial, @booking], local: true do |form| %>
+    <div class="mb-3">
+      <%= form.label :confirmed, "Confirm Booking", class: "form-label" %>
+      <div class="form-check">
+        <%= form.check_box :confirmed, class: "form-check-input" %>
+        <%= form.label :confirmed, class: "form-check-label" %>
+      </div>
+    </div>
+
+    <%= form.submit "Book Now", class: "btn btn-primary" %>
+  <% end %>
+</div>
