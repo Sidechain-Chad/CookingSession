@@ -23,7 +23,7 @@
 
         <%= link_to 'View', booking_path(booking), class: 'btn btn-secondary' %>
         <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>
-        <%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <%= link_to 'Back to Tutorials', cooking_tutorials_path, class: 'btn btn-warning' %>
       </div>
     <% end %>
   </div>
@@ -31,6 +31,3 @@
   <p>You have no bookings yet.</p>
   <%= link_to 'Browse Classes', cooking_tutorials_path, class: 'btn btn-success' %>
 <% end %>
-
-
-<!--comment-->
