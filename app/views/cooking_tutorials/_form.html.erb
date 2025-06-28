@@ -1,0 +1,25 @@
+
+ <%= form_with model: @cooking_tutorial do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location %>
+    <%= f.text_area :location, class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date %>
+    <%= f.text_area :date, class: 'form-control' %>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary mt-3' %>
+<% end %>

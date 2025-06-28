@@ -17,7 +17,9 @@ users = User.create!([
   { email: 'bob@example.com', password: 'password' },
   { email: 'carol@example.com', password: 'password' }
 ])
+
 puts "Created #{User.count} users"
+
 # Create Cooking Tutorials
 tutorials = CookingTutorial.create!([
   {
@@ -42,7 +44,9 @@ tutorials = CookingTutorial.create!([
     user: users[2]
   }
 ])
+
 puts "Created #{CookingTutorial.count} cooking tutorials"
+
 # Create Bookings
 Booking.create!([
   { user: users[1], cooking_tutorial: tutorials[0], confirmed: true },
