@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+<<<<<<< HEAD
+=======
 # Clear existing data
 Booking.destroy_all
 CookingTutorial.destroy_all
@@ -54,3 +56,4 @@ Booking.create!([
   { user: users[0], cooking_tutorial: tutorials[2], confirmed: true }
 ])
 puts "Created #{Booking.count} bookings"
+>>>>>>> origin/foundation-code
