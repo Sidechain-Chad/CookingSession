@@ -1,8 +1,16 @@
 <h1>Tutorials</h1>
+<div class= 'container'>
+ <p><%= link_to "Create Class", cooking_tutorial_path('new'),class: 'btn btn-primary' %></p>
 
 <% @cooking_tutorials.each do |t| %>
-  <p> <strong><%= t.title %></strong>  </p>
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2><strong><%= t.title %></strong> </h2>
+    <p><%= t.description %></p>
   <p><%= link_to "Find out more", cooking_tutorial_path(t.id) %>
  </p>
+  </div>
+</div>
 <% end %>
- <p><%= link_to "Create Class", cooking_tutorial_path('new') %></p>
+</div>
