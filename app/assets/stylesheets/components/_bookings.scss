@@ -1,50 +1,172 @@
-.booking-index-container {
-  max-width: 960px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+@import url('https://fonts.googleapis.com/css2?family=Nixie+One&family=Rubik:wght@300;500&display=swap');
+
+$card-bg: #506E61;
+$text-color: #fff;
+$light-bg: lighten($card-bg, 50%);
+$shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+body {
+  margin: 5rem;
+  background: $light-bg;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
 }
 
-.booking-list {
-  display: grid;
-  gap: 2rem;
+h1 {
+  text-align: center;
+  font-family: 'Nixie One', cursive;
+  font-size: 3.2rem;
+  margin-bottom: 4rem;
+  color: $card-bg;
 }
 
-.booking-card {
-  position: relative;
-  height: 200px;
-  border-radius: 10px;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+p, ul {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cards {
   display: flex;
-  align-items: flex-end;
-  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2rem;
 
-  .booking-card-content {
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.4); // optional: soft gradient
-    width: 100%;
+  @media only screen and (min-width: 800px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.card {
+  background: $card-bg;
+  border-radius: 2rem;
+  overflow: hidden;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: $shadow;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .image {
+    height: 180px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .note {
+      position: absolute;
+      font-family: 'Nixie One', cursive;
+      border-top-left-radius: 1rem;
+      right: 0;
+      bottom: 0;
+      padding: 8px 1.3rem;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      background: $text-color;
+      color: #0d0c0c;
+    }
+  }
+
+  &__content {
+    padding: 3rem 2rem;
 
     h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-    }
+      font-size: 2.0rem;
+      margin-bottom: 1rem;      // Reduced from 2.8rem
+      padding-bottom: 0.5rem;   // Reduced from 2.5rem
+      border-bottom: 2px solid rgba($text-color, 0.5);
+      line-height: 3.2rem;
+      color: black;
+      font-family: 'Nixie One', cursive;
 
-    p {
-      margin: 0 0 0.75rem;
-      font-size: 0.9rem;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-
-      .btn {
-        font-size: 0.8rem;
+      @media only screen and (max-width: 600px) {
+        font-size: 2rem;
+        line-height: 2.4rem;
       }
     }
+
+    p:not(.list-label) {
+      margin-bottom: 0.5rem;    // Reduced from 1rem
+      color: black;
+      font-size: 1.2rem;
+      line-height: 2.4rem;
+    }
+
+    .mt-3 {
+      margin-top: 0.5rem !important;  // Reduced space above buttons (override Bootstrap)
+    }
+
+    ul {
+      margin-left: 3rem;
+      margin-bottom: 2rem;
+
+      li {
+        position: relative;
+        line-height: 2.6rem;
+
+        &:after {
+          position: absolute;
+          content: "";
+          background: {
+            image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512' width='100' title='star'%3E%3Cpath fill='rgba(255,255,255,0.6)' d='M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z' /%3E%3C/svg%3E");
+            repeat: no-repeat;
+            position: center;
+            size: contain;
+          }
+          width: 1.2rem;
+          height: 1.2rem;
+          top: 5px;
+          left: -2rem;
+        }
+      }
+    }
+
+    .list-label {
+      margin-top: 2rem;
+    }
+
+    .bold {
+      font-weight: 400;
+    }
+  }
+
+  h3 {
+    max-width: 60%;
+    font-size: 1.8rem;
+    margin: 2.5rem 0 1rem;
+    line-height: 2.8rem;
+    color: black;
+    font-family: 'Nixie One', cursive;
+  }
+}
+
+.btn {
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  border-radius: 0.6rem;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+  margin-top: 1rem;
+
+  &:hover {
+    filter: brightness(110%);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 }

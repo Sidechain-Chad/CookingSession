@@ -1,6 +1,6 @@
 <!--<h1>Bookings#edit</h1>
 <p>Find me in app/views/bookings/edit.html.erb</p>-->
-<div class="container mt-5" style="max-width: 600px;">
+<div class="container border p-3 rounded-2 mt-5" style="max-width: 600px;">
   <h2 class="mb-4">Edit Booking</h2>
 
   <%= form_with model: @booking, local: true do |form| %>
@@ -35,6 +35,6 @@
       <%= form.collection_select :cooking_tutorial_id, @cooking_tutorials, :id, :title, {}, { class: "form-select" } %>
     </div>
 
-    <%= form.submit "Update Booking", class: "btn btn-success" %>
+    <%= form.submit "Update Booking", class: "btn btn-success w-100" %>
   <% end %>
 </div>
