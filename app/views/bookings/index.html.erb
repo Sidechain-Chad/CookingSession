@@ -1,27 +1,41 @@
 <!--<h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
 -->
-<h1>My Bookings</h1>
+<h1 class="text-center mb-5"><strong>My Bookings</strong></h1>
 
 <% if @bookings.any? %>
-  <div class="booking-list">
-    <% @bookings.each do |booking| %>
-      <div class="booking-card">
-        <h2><%= booking.cooking_tutorial.title %></h2>
+  <main class="main">
+    <div class="cards">
+      <% @bookings.each do |booking| %>
+        <article class="card">
+          <div class="image">
+            <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488" alt="Cooking class">
+           <!-- <p class="note">Cooking Class</p>-->
+          </div>
+          <div class="card__content">
+            <h2 class="card_title">
+              <%= booking.cooking_tutorial.title %>
+            </h2>
 
-        <%# <p><strong>Date:</strong><%= booking.scheduled_at.strftime("%A, %d %B %Y at %I:%M %p") %>
+            <p><strong>Date:</strong>
+              <%= booking.scheduled_at.present? ? booking.scheduled_at.strftime("%A, %d %B %Y at %I:%M %p") : "Not scheduled" %>
+            </p>
 
-
-
-        <%= link_to 'View', booking_path(booking), class: 'btn btn-secondary' %>
-        <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>
-        <%= link_to 'Back to Tutorials', cooking_tutorials_path, class: 'btn btn-warning' %>
-      </div>
-    <% end %>
-  </div>
+            <div class="mt-3 d-flex flex-wrap gap-2">
+              <%= link_to 'View', booking_path(booking), class: 'btn btn-outline-dark btn-med' %>
+              <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-outline-warning btn-med' %>
+              <%= link_to 'Back to Tutorials', cooking_tutorials_path, class: 'btn btn-outline-info btn-med' %>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </main>
 <% else %>
-  <p>You have no bookings yet.</p>
-  <%= link_to 'Browse Classes', cooking_tutorials_path, class: 'btn btn-success' %>
+  <div class="text-center">
+    <p>You have no bookings yet.</p>
+    <%= link_to 'Browse Classes', cooking_tutorials_path, class: 'btn btn-success' %>
+  </div>
 <% end %>
 
 <!--Not in use:-->

@@ -1,0 +1,61 @@
+.bookings-show {
+  max-width: 600px;
+  margin: 5rem auto 0 auto;
+  padding: 0 1rem;
+
+  .card {
+    /* Removed background color */
+    border-radius: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 3rem 2rem;
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    line-height: 2.4rem;
+    text-align: left;
+
+    /* Center the card horizontally */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 600px;
+
+    .card__content {
+      padding: 0;
+
+      h3.card-title {
+        font-family: 'Nixie One', cursive;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        padding-bottom: 0.5rem;
+        color: black;
+      }
+
+      p {
+        font-size: 1.0rem;
+        margin-bottom: 1.2rem;
+        color: black;
+
+        strong {
+          font-weight: 550;
+        }
+      }
+
+      .btn {
+        margin-top: 1.5rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        border-radius: 0.6rem;
+        padding: 0.6rem 1.4rem;
+        transition: all 0.3s ease;
+        margin-right: 1rem;
+
+        &:hover {
+          filter: brightness(110%);
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+}

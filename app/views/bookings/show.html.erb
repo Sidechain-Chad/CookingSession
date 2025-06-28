@@ -1,13 +1,15 @@
 <!--<h1>Bookings#show</h1>
 <p>Find me in app/views/bookings/show.html.erb</p>-->
-<div class="container mt-5" style="max-width: 600px;">
-  <div class="card">
-    <div class="card-body">
+<div class="bookings-show container mt-5">
+  <article class="card">
+    <div class="card__content">
       <h3 class="card-title mb-3">Booking Details</h3>
+
       <p><strong>Class:</strong> <%= @booking.cooking_tutorial.title %></p>
-      <p><strong>Date:</strong> <%= @booking.cooking_tutorial.date %></p>
+      <p><strong>Date:</strong> <%= @booking.scheduled_at.present? ? @booking.scheduled_at.strftime("%A, %d %B %Y at %I:%M %p") : "Not scheduled" %></p>
       <p><strong>Confirmed:</strong> <%= @booking.confirmed ? "Yes" : "No" %></p>
+
       <%= link_to "Back to My Bookings", bookings_path, class: "btn btn-outline-secondary mt-3" %>
     </div>
-  </div>
+  </article>
 </div>

@@ -1,9 +1,8 @@
 class CookingTutorial < ApplicationRecord
-    # Associations
+  # Associations
   belongs_to :user
   has_many :users, through: :bookings
   has_many :bookings
-
-    # Validations
+  # Validations
   validates :title, :description, :location, :date, presence: true
 end
