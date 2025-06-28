@@ -1,11 +1,20 @@
+
+
+<div class="container mt-5" style="max-width: 600px;">
+  <div class="card">
+    <div class="card-body">
+
 <h1><%= @cooking_tutorial.title %></h1>
 
 <p><%=  @cooking_tutorial.description%></p>
 
 <p><%= @cooking_tutorial.location %></p>
 
-<p><%= @cooking_tutorial.date %></p>
+<p><%= @cooking_tutorial.date.strftime('%d %B %Y, %H:%M') %></p>
 
-<p><%= @cooking_tutorial.user %></p>
+<p>Bookings confirmed <%= @cooking_tutorial.bookings.count%></p>
 
-<p> <%= @cooking_tutorial.bookings.count%></p>
+<p><%= link_to "Book Now",  new_cooking_tutorial_booking_path(@cooking_tutorial) %></p>
+    </div>
+  </div>
+</div>

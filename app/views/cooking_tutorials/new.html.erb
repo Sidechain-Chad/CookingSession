@@ -1,3 +1,4 @@
+<div class = 'container' >
 <h1>New Tutorial</h1>
 <%= simple_form_for(@cooking_tutorial) do |f| %>
   <%= f.input :title %>
@@ -8,3 +9,4 @@
   <%= f.submit %>
 <% end %>
 <% raise "@cooking_tutorial is nil!" if @cooking_tutorial.nil? %>
+</div>
