@@ -1,0 +1,40 @@
+<!--<h1>Bookings#edit</h1>
+<p>Find me in app/views/bookings/edit.html.erb</p>-->
+<div class="container mt-5" style="max-width: 600px;">
+  <h2 class="mb-4">Edit Booking</h2>
+
+  <%= form_with model: @booking, local: true do |form| %>
+    <!-- Confirmed checkbox -->
+    <div class="mb-3">
+      <%= form.label :confirmed, "Booking Confirmed?", class: "form-label" %>
+      <div class="form-check">
+        <%= form.check_box :confirmed, class: "form-check-input" %>
+        <%= form.label :confirmed, class: "form-check-label" %>
+      </div>
+    </div>
+
+    <!-- Scheduled Date -->
+    <div class="mb-3">
+      <%= form.label :scheduled_at, "Scheduled Date", class: "form-label" %>
+      <div class="d-flex flex-wrap gap-2">
+        <%= form.date_select :scheduled_at, { default: @booking.scheduled_at || Time.now, order: [:year, :month, :day] }, { class: "form-select d-inline w-auto" } %>
+      </div>
+    </div>
+
+    <!-- Scheduled Time -->
+    <div class="mb-3">
+      <%= form.label :scheduled_at, "Scheduled Time", class: "form-label" %>
+      <div class="d-flex flex-wrap gap-2">
+        <%= form.time_select :scheduled_at, { default: @booking.scheduled_at || Time.now, minute_step: 15 }, { class: "form-select d-inline w-auto" } %>
+      </div>
+    </div>
+
+    <!-- Cooking Tutorial Dropdown -->
+    <div class="mb-3">
+      <%= form.label :cooking_tutorial_id, "Cooking Tutorials", class: "form-label" %>
+      <%= form.collection_select :cooking_tutorial_id, @cooking_tutorials, :id, :title, {}, { class: "form-select" } %>
+    </div>
+
+    <%= form.submit "Update Booking", class: "btn btn-success" %>
+  <% end %>
+</div>

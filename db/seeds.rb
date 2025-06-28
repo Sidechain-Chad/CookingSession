@@ -7,14 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-require "open-uri"
-require "json"
-
 # Clear existing data
 Booking.destroy_all
 CookingTutorial.destroy_all
 User.destroy_all
-
 # Create Users
 users = User.create!([
   { email: 'alice@example.com', password: 'password' },

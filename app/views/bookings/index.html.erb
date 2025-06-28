@@ -1,0 +1,36 @@
+<!--<h1>Bookings#index</h1>
+<p>Find me in app/views/bookings/index.html.erb</p>
+-->
+<h1>My Bookings</h1>
+
+<% if @bookings.any? %>
+  <div class="booking-list">
+    <% @bookings.each do |booking| %>
+      <div class="booking-card">
+        <h2><%= booking.cooking_tutorial.title %></h2>
+
+        <p><strong>Date:</strong><%= booking.scheduled_at.strftime("%A, %d %B %Y at %I:%M %p") %></p>
+
+
+
+        <%= link_to 'View', booking_path(booking), class: 'btn btn-secondary' %>
+        <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>
+        <%= link_to 'Back to Tutorials', cooking_tutorials_path, class: 'btn btn-warning' %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>You have no bookings yet.</p>
+  <%= link_to 'Browse Classes', cooking_tutorials_path, class: 'btn btn-success' %>
+<% end %>
+
+<!--Not in use:-->
+<%# if booking.dietary_restrictions.present? %>
+<!--<p><strong>Dietary Restrictions:</strong> <%##= booking.dietary_restrictions %></p>-->
+<%# end %>
+
+<!--<p><strong>Status:</strong>
+<span class="status <%##= booking.status.downcase %>">
+<%#= booking.status.capitalize %>-->
+<!--</span>
+</p>-->

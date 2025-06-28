@@ -7,5 +7,4 @@ class User < ApplicationRecord
   # Associations
   has_many :cooking_tutorials, dependent: :destroy # tutorials the user hosts
   has_many :bookings, dependent: :destroy # bookings the user has made
-  has_many :booked_tutorials, through: :bookings, source: :cooking_tutorial
 end
