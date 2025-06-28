@@ -9,3 +9,5 @@
 <p><%= @cooking_tutorial.user %></p>
 
 <p> <%= @cooking_tutorial.bookings.count%></p>
+
+<p><%= link_to "Book Now",  new_cooking_tutorial_booking_path(@cooking_tutorial) %></p>
