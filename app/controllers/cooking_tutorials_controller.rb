@@ -22,6 +22,6 @@ end
 
   private
   def cooking_tutorial_params
-    params.require(:cooking_tutorial).permit(:title, :location, :description, :date)
+    params.require(:cooking_tutorial).permit(:title, :location, :description, :date, :user_id)
   end
 end
