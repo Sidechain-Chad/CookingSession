@@ -1,4 +1,5 @@
 class CookingTutorialsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :new]
   def index
     @cooking_tutorials = CookingTutorial.all
   end
@@ -10,12 +11,13 @@ class CookingTutorialsController < ApplicationController
   end
 def create
   @cooking_tutorial = CookingTutorial.new(cooking_tutorial_params)
+  @cooking_tutorial.user = current_user
   if @cooking_tutorial.save
     redirect_to @cooking_tutorial, notice: 'Tutorial created successfully.'
   else
     render :new, status: :unprocessable_entity
   end
-  
+
 end
 
   private
